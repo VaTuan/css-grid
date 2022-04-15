@@ -1,0 +1,106 @@
+.layout-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Phân tích */
+/* Chia làm 4 cột và 3 hàng, layout có sư so le */
+/* Tổng chiều cao của layout giả sử bằng 800px 
+      hàng 1 : 350px;
+      hàng 2 : 100px;
+      hàng 3 : 350px
+  */
+
+/* MÔ PHỎNG LAYOUT  */
+
+/*
+   layout có 4 cột và 3 hàng : 
+   column   column  column  column
+   column   column  column  column
+   column   column  column  column 
+ */
+
+/* Hình 1 chiếm 2 cột và 1 hàng : ==>  */
+/*  
+   H1       H1      column  column
+   column   column  column  column
+   column   column  column  column 
+ */
+
+/* Hình 2 chiếm 1 cột và 2 hàng : ==>  */
+/*  
+   H1       H1      H2  column
+   column   column  H2  column
+   column   column  column  column 
+ */
+
+/* Hình 3 chiếm 1 cột và 2 hàng : ==>  */
+/*  
+   H1       H1      H2  H3
+   column   column  H2  H3
+   column   column  column  column 
+ */
+
+/* Hình 4 chiếm 1 cột và 2 hàng : ==>  */
+/*  
+   H1       H1      H2  H3
+   H4   column  H2  H3
+   H4   column  column  column 
+ */
+
+/* Hình 5 chiếm 1 cột và 2 hàng : ==>  */
+/*  
+   H1   H1  H2  H3
+   H4   H5  H2  H3
+   H4   H5  column  column 
+ */
+
+/* Hình 6 chiếm 2 cột và 1 hàng : ==>  */
+/*  
+   H1   H1  H2  H3
+   H4   H5  H2  H3
+   H4   H5  H6  H6 
+   
+   ==> Đây là template area  cuối cùng : 
+   "H1   H1  H2  H3"
+   "H4   H5  H2  H3"
+   "H4   H5  H6  H6"
+ */
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 350px 100px 350px;
+  grid-gap: 30px;
+  padding: 30px;
+
+  /* Triển khai tại đây */
+  grid-template-areas:
+    "H1   H1  H2  H3"
+    "H4   H5  H2  H3"
+    "H4   H5  H6  H6";
+}
+.layout-item {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.layout-item:first-child {
+  grid-area: H1;
+}
+.layout-item:nth-child(2) {
+  grid-area: H2;
+}
+.layout-item:nth-child(3) {
+  grid-area: H3;
+}
+.layout-item:nth-child(4) {
+  grid-area: H4;
+}
+.layout-item:nth-child(5) {
+  grid-area: H5;
+}
+.layout-item:last-child {
+  grid-area: H6;
+}

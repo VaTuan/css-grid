@@ -1,0 +1,28 @@
+.post-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-gap: 25px;
+  grid-template-areas:
+    "h1 h2 h3"
+    "h1 h4 h5";
+    
+}
+.post-item:first-child{
+    grid-area: h1;
+}
+.post-item:nth-child(2){
+    grid-area: h2;
+}
+.post-item:nth-child(3){
+    grid-area: h3;
+
+}
+.post-item:nth-child(4){
+    grid-area: h4;
+
+}
+.post-item:last-child{
+    grid-area: h5;
+
+}

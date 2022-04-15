@@ -1,0 +1,84 @@
+  /* ==> track line bắt đầu từ số 1 */
+  /* VÍ DỤ , UI có: */
+  /* Số cột 3  ==>  track line = số cột + 1 = 4 */
+  /* Số dòng 1 ==> track line = số dòng + 1 = 2  */
+  
+  .layout-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Phân tích */
+  /* Chia làm 4 cột và 3 hàng */
+  /* Tổng chiều cao của layout giả sử bằng 800px 
+      hàng 1 : 350px;
+      hàng 2 : 100px;
+      hàng 3 : 350px
+  */
+  .layout-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 350px 100px 350px;
+    grid-gap: 30px;
+    padding: 30px;
+  }
+  .layout-item-02 {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .layout-item-02:first-child {
+    /* grid-column:  : track-line-start / track-line-end;
+      grid-row:  : track-line-start / track-line-end;
+        số track-line bắt đầu và kết thúc
+        mục đích là để item được trải dài trong track-line đó
+      */
+  
+    /* Ví dụ theo cột : trải dài từ track-line 1 đến track-line 3 */
+    grid-column: 1/3;
+    /* Ví dụ theo hàng: trải dài từ track-line 1 đến track-line 2 */
+    grid-row: 1/2;
+  
+    /* ===============*****======================== */
+    /* CÓ THỂ VIẾT BẰNG CÁCH KHÁC : DÙNG span;
+       nhìn vào sẽ biết 1 tem chiến bao nhiêu cột, bao nhiêu hàng
+      */
+    /* ==> Theo cột : từ track-line số 1 và chiếm 2 cột */
+    grid-column: 1 / span 2;
+    /* ==> Theo hàng :  Từ track-line số 1 và chiếm 1 hàng  */
+    grid-row: 1 / span 1;
+  }
+  .layout-item-02:nth-child(2),
+  .layout-item-02:nth-child(3) {
+    grid-row: 1/3;
+  
+    /* ==================***============================== */
+    /* VIẾT BẰNG span  */
+    /* Từ track-line số 1 và chiếm 2 hàng
+    
+       ==> có thể hiểu sau span là số cột/hàng mà div đó chiếm
+       ==> concept : Từ track-line số mấy và chiếm bao nhiêu hàng 
+    */
+    grid-row: 1 / span 2;
+  }
+  .layout-item-02:nth-child(4),
+  .layout-item-02:nth-child(5) {
+    grid-row: 2/4;
+  
+      /* ==================***============================== */
+    /* VIẾT BẰNG span 
+    ==> từ track-line row số 2 chiếm 2 hàng
+    */
+    grid-row : 2 / span 2
+  }
+  .layout-item-02:last-child {
+    grid-column: 3/5;
+  
+    /* ==================***============================== */
+    /* VIẾT BẰNG span 
+    ==> từ track-line column số 3 chiếm 2 hàng
+    */
+    grid-column: 3 / span 2;
+  }
+  

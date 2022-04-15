@@ -1,0 +1,20 @@
+.images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 36px;
+  /* Dùng auto-fit và auto-fill */
+  /* grid-template-columns: repeat(auto-fit, value); ==> cố lấp đầy khoảng trống */
+  /* grid-template-columns: repeat(auto-fill, value); ==> cố fill cho đầy cột */
+  grid-template-columns: repeat(auto-fit, minmax(290px , 1fr));
+  /* ==> Nếu mà làm dạng grid thì dùng auto-fit */
+}
+
+.image-item{
+    background-origin: 10px;
+    height: 220px;
+}
+.image-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
